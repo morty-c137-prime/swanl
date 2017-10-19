@@ -1,0 +1,9 @@
+/*
+ * MOTD
+*/
+p.motd
+{
+    width: 100%;
+    text-align: center;
+    margin: 10vh 0;
+}
