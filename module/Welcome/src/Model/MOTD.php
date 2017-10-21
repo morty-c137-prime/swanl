@@ -29,7 +29,7 @@ class MOTD
 	public function exchangeArray(array $data)
     {
         $this->id      = !empty($data['id']) ? $data['id'] : null;
-        $this->message = !empty($data['artist']) ? $data['artist'] : null;
+        $this->message = !empty($data['message']) ? $data['message'] : null;
     }
 
 	/**

@@ -5,35 +5,27 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Welcome;
+namespace Application;
 
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
+use Welcome\Controller\MOTDController;
+
 return [
     'router' => [
         'routes' => [
-            'index' => [
+            'home' => [
                 'type' => Literal::class,
                 'options' => [
                     'route'    => '/',
                     'defaults' => [
-                        'controller' => Controller\MOTDController::class,
+                        'controller' => MOTDController::class,
                         'action'     => 'displayMOTD',
                     ],
                 ],
             ],
-        ],
-    ],
-    'controllers' => [
-        'factories' => [
-            Controller\MOTDController::class => function($serviceManager)
-            {
-                return new Controller\MOTDController(
-                    $serviceManager->get(Model\MOTDTable::class)  
-                );
-            },
         ],
     ],
     'view_manager' => [

@@ -14,7 +14,7 @@ use Zend\ModuleManager\Feature\ConfigProviderInterface;
 
 class Module
 {
-    const VERSION = '3.0.3-dev';
+    const VERSION = '3.0.4-dev';
 
     public function getConfig()
     {
@@ -25,11 +25,14 @@ class Module
     {
     	return [
     		'factories' => [
-                Model\MOTDTable::class => function($serviceManager) {
+                Model\MOTDTable::class => function($serviceManager)
+                {
                     $tableGateway = $serviceManager->get(Model\MOTDTableGateway::class);
                     return new Model\MOTDTable($tableGateway);
                 },
-                Model\MOTDTableGateway::class => function ($serviceManager) {
+                
+                Model\MOTDTableGateway::class => function ($serviceManager)
+                {
                     $dbAdapter = $serviceManager->get(AdapterInterface::class);
                     $resultSetPrototype = new ResultSet();
                     $resultSetPrototype->setArrayObjectPrototype(new Model\MOTD());
