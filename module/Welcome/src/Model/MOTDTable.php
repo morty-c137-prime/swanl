@@ -8,9 +8,8 @@ namespace Welcome\Model;
 use RuntimeException;
 use Zend\Db\TableGateway\TableGatewayInterface;
 
-class MOTDTable 
+class MOTDTable
 {
-
 	/**
 	 * @var Gateway to the db.
 	 */
@@ -41,7 +40,9 @@ class MOTDTable
 		$id = (int) $id;
         $rowset = $this->tableGateway->select(['id' => $id]);
         $row = $rowset->current();
-        if (! $row) {
+
+        if(!$row)
+        {
             throw new RuntimeException(sprintf(
                 'Could not find row with identifier %d',
                 $id

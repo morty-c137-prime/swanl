@@ -39,13 +39,8 @@ class MOTDController extends AbstractActionController
 
     public function displayMOTDAction()
     {
-    	/*$motd = new MOTD();
-    	$data = $this->table->getFromId(2);
+    	$motd = $this->table->getFromId(2);
 
-    	$motd->exchangeArray((array) $data);*/
-
-    	var_dump($this->table->getFromId(2));
-
-        return new ViewModel([$motd]);
+        return new ViewModel(['motd' => $motd]);
     }
 }
